@@ -1,6 +1,6 @@
-package com.productpurchases.repository;
+package com.productpurchases.shopkeeper.repository;
 
-import com.productpurchases.entity.Order;
+import com.productpurchases.shopkeeper.entity.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

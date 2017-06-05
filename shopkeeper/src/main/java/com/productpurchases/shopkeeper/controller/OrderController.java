@@ -1,8 +1,8 @@
-package com.productpurchases.controller;
+package com.productpurchases.shopkeeper.controller;
 
-import com.productpurchases.dto.ResponseDTO;
-import com.productpurchases.entity.Order;
-import com.productpurchases.repository.OrderRepository;
+import com.productpurchases.shopkeeper.dto.ResponseDTO;
+import com.productpurchases.shopkeeper.entity.Order;
+import com.productpurchases.shopkeeper.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;

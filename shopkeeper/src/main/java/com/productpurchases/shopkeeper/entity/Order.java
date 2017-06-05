@@ -1,4 +1,4 @@
-package com.productpurchases.entity;
+package com.productpurchases.shopkeeper.entity;
 
 import lombok.Data;
 

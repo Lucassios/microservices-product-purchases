@@ -1,6 +1,6 @@
-package com.productpurchases.controller.com.productpurchases.builder;
+package com.productpurchases.shopkeeper.controller.com.productpurchases.builder;
 
-import com.productpurchases.entity.Order;
+import com.productpurchases.shopkeeper.entity.Order;
 
 import java.math.BigDecimal;
 

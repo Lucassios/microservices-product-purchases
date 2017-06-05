@@ -1,8 +1,8 @@
-package com.productpurchases.controller;
+package com.productpurchases.shopkeeper.controller;
 
-import com.productpurchases.controller.com.productpurchases.builder.OrderBuilder;
-import com.productpurchases.dto.ResponseDTO;
-import com.productpurchases.entity.Order;
+import com.productpurchases.shopkeeper.controller.com.productpurchases.builder.OrderBuilder;
+import com.productpurchases.shopkeeper.dto.ResponseDTO;
+import com.productpurchases.shopkeeper.entity.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
