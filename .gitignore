@@ -1,0 +1,7 @@
+.idea/
+out/
+db/
+*.iml
+shopkeeper/target/
+wholesaler/target/
+foo/
