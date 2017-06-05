@@ -1,6 +1,5 @@
 package com.productpurchases.shopkeeper.controller;
 
-import com.productpurchases.shopkeeper.dto.ResponseDTO;
 import com.productpurchases.shopkeeper.entity.Order;
 import com.productpurchases.shopkeeper.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+import java.util.Date;
 
 /**
  * Created by lucascmarques on 04/06/17.
@@ -25,16 +21,10 @@ public class OrderController {
     private OrderRepository orderRepository;
 
     @RequestMapping(value = "/order", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseDTO<Order> createOrder(@RequestBody Order order) {
-        Order orderSaved = orderRepository.save(order);
-        ResponseDTO<Order> response = new ResponseDTO<Order>(orderSaved);
-        response.add(linkTo(methodOn(OrderController.class).createOrder(order)).withSelfRel());
-        return response;
-    }
-
-    @RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Order> listAllOrders() {
-        return (List<Order>) orderRepository.findAll();
+    public void updateOrder(@RequestBody String orderCode, Date deliveryDate) {
+        Order order = orderRepository.findByOrderCode(orderCode);
+        order.setDeliveryDate(deliveryDate);
+        orderRepository.save(order);
     }
 
 }

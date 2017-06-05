@@ -1,4 +1,4 @@
-package com.productpurchases.shopkeeper.entity;
+package com.productpurchases.wholesaler.entity;
 
 import lombok.Data;
 
@@ -22,12 +22,10 @@ public class Order {
     @GeneratedValue
     private Long id;
 
-    private String orderCode;
-
     @Temporal(TemporalType.DATE)
     private Date deliveryDate;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<ProductOrder> productOrders;
 
     @NotNull

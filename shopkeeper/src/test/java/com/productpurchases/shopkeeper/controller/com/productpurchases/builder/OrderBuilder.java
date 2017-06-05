@@ -1,6 +1,6 @@
 package com.productpurchases.shopkeeper.controller.com.productpurchases.builder;
 
-import com.productpurchases.shopkeeper.entity.Order;
+import com.productpurchases.shopkeeper.entity.ProductOrder;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  */
 public class OrderBuilder {
 
-    private Order order = new Order();
+    private ProductOrder order = new ProductOrder();
 
     public OrderBuilder productId(Long productId) {
         order.setProductId(productId);
@@ -26,9 +26,9 @@ public class OrderBuilder {
         return this;
     }
 
-    public Order build() {
-        Order order = this.order;
-        this.order = new Order();
+    public ProductOrder build() {
+        ProductOrder order = this.order;
+        this.order = new ProductOrder();
         return order;
     }
 

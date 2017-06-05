@@ -1,6 +1,6 @@
-package com.productpurchases.shopkeeper.repository;
+package com.productpurchases.wholesaler.repository;
 
-import com.productpurchases.shopkeeper.entity.Order;
+import com.productpurchases.wholesaler.entity.Order;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
-
-    Order findByOrderCode(String orderCode);
 
 }
