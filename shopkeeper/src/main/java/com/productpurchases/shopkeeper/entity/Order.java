@@ -3,7 +3,6 @@ package com.productpurchases.shopkeeper.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +29,6 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
 
-    @NotNull
     @Enumerated(EnumType.ORDINAL)
     private OrderRequestStatus status;
 

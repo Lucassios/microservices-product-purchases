@@ -11,8 +11,8 @@ public class OrderBuilder {
 
     private ProductOrder order = new ProductOrder();
 
-    public OrderBuilder productId(Long productId) {
-        order.setProductId(productId);
+    public OrderBuilder id(Long id) {
+        order.setId(id);
         return this;
     }
 
