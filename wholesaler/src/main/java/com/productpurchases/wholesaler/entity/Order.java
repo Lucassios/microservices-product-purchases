@@ -15,17 +15,19 @@ import java.util.List;
 public class Order {
 
     public enum OrderRequestStatus {
-        REQUESTED, PROGRESS, FINISHED, DISPATCHED
+        REQUESTED, PROGRESS, FINISHED, DISPATCHED, REJECTED
     }
 
     @Id
     @GeneratedValue
     private Long id;
 
+    private String orderCode;
+    
     @Temporal(TemporalType.DATE)
     private Date deliveryDate;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<ProductOrder> productOrders;
 
     @NotNull

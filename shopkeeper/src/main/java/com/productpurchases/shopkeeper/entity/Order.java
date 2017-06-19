@@ -14,7 +14,7 @@ import java.util.List;
 public class Order {
 
     public enum OrderRequestStatus {
-        REQUESTED, PROGRESS, FINISHED, DISPATCHED
+        REQUESTED, PROGRESS, FINISHED, DISPATCHED, REJECTED
     }
 
     @Id
