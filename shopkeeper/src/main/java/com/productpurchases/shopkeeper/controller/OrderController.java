@@ -32,7 +32,7 @@ public class OrderController {
         orderRepository.save(order);
     }
     
-    @RequestMapping(value = "/orderStatus", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/order/updateOrderStatus", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public void updateOrderStatus(@RequestBody String orderCode, OrderRequestStatus status) {
         Order order = orderRepository.findByOrderCode(orderCode);
         order.setStatus(status);
