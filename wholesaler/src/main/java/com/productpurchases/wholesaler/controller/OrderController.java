@@ -44,17 +44,17 @@ public class OrderController {
         return response;
     }
 
-    @RequestMapping(value = "/order/{orderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseDTO<Order> getOrderById(@PathVariable Long orderId) {
-    	Order orderRequired = orderRepository.findById(orderId);
+    @RequestMapping(value = "/order/{orderCode}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseDTO<Order> getOrderByOrderCode(@PathVariable Long orderCode) {
+    	Order orderRequired = orderRepository.findByOrderCode(orderCode);
         ResponseDTO<Order> response = new ResponseDTO<Order>(orderRequired);
-        response.add(linkTo(methodOn(OrderController.class).getOrderById(orderRequired.getId())).withSelfRel());
+        response.add(linkTo(methodOn(OrderController.class).getOrderByOrderCode(orderRequired.getOrderCode())).withSelfRel());
         return response;
     }
     
     
     @RequestMapping(value = "/order/confirmOrder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseDTO<Order> confirmOrder(@RequestParam String orderCode) {
+    public ResponseDTO<Order> confirmOrder(@RequestParam Long orderCode) {
         Order orderRequired = orderRepository.findByOrderCode(orderCode);
         orderRequired.setStatus(OrderRequestStatus.PROGRESS);
         orderRepository.save(orderRequired);
@@ -64,7 +64,7 @@ public class OrderController {
     }
     
     @RequestMapping(value = "/order/rejectOrder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseDTO<Order> rejectOrder(@RequestParam String orderCode) {
+    public ResponseDTO<Order> rejectOrder(@RequestParam Long orderCode) {
         Order orderRequired = orderRepository.findByOrderCode(orderCode);
         orderRequired.setStatus(OrderRequestStatus.REJECTED);
         orderRepository.save(orderRequired);
@@ -81,7 +81,7 @@ public class OrderController {
            
         for (Order order : orderRequired) {
         	ResponseDTO<Order> response = new ResponseDTO<Order>(order);
-        	Link selfLink = linkTo(methodOn(OrderController.class).getOrderById(order.getId())).withSelfRel();
+        	Link selfLink = linkTo(methodOn(OrderController.class).getOrderByOrderCode(order.getOrderCode())).withSelfRel();
         	response.add(selfLink);
             responseArray.add(response);
         }

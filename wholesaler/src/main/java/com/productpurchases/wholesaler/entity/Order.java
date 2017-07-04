@@ -20,9 +20,7 @@ public class Order {
 
     @Id
     @GeneratedValue
-    private Long id;
-
-    private String orderCode;
+    private Long orderCode;
     
     @Temporal(TemporalType.DATE)
     private Date deliveryDate;

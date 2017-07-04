@@ -19,9 +19,9 @@ public class Order {
 
     @Id
     @GeneratedValue
-    private Long id;
-
-    private String orderCode;
+    private Long orderId;
+    
+    private Long wholesalerOrderCode;
 
     @Temporal(TemporalType.DATE)
     private Date deliveryDate;

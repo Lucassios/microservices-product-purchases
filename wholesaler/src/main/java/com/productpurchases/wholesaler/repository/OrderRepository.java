@@ -14,8 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    Order findByOrderCode(String orderCode);
-    Order findById(Long orderId);
+    Order findByOrderCode(Long orderCode);
     List<Order> findByStatus(OrderRequestStatus status);
 	
 }
